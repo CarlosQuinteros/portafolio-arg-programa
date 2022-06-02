@@ -1,0 +1,14 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-xxl fadein animation-duration-500">
+    <div class="row h-100 d-flex justify-content-center align-items-center">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-8 text-center">
+            <img class="img-fluid" src="assets/imagen-error-404.png" alt="Error 404">
+            <p class="fs-1 fw-bold" style="margin-bottom:0%">Página no encontrada</p>
+            <p class="fs-4 text-gray-700">Lo sentimos, no logramos encontrar la página</p>
+            <div class="text-center mt-2">
+                <button pButton class="p-button-text p-button-secondary me-4" icon="pi pi-arrow-left" label="Atras" (click)="goBack()"></button>
+                <a href="/home" class="no-underline" role="button" pButton icon="pi pi-home" label="Ir a pantalla principal"></a>
+            </div>
+        </div>
+    </div>
+</div>

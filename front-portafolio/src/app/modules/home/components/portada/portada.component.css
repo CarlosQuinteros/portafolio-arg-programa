@@ -1,0 +1,7 @@
+.background-portada{
+    background-image: url("src/assets/waves-background.svg");
+    height:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}

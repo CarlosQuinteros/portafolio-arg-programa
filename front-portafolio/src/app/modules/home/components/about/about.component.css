@@ -1,0 +1,12 @@
+.background-image{
+    background-image: url("src/assets/about-page-backgroud.svg");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
+
+#imagenPerfil{
+    /* -webkit-box-shadow: -18px -12px 0px -2px #000000; 
+    box-shadow: -18px -12px 0px -2px #484646; */
+    border-radius: 10px;
+}

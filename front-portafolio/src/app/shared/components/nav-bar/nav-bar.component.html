@@ -1,0 +1,10 @@
+<p-menubar [autoZIndex]="false" styleClass="bg-white shadow-1 border-transparent border-noround" [model]="items">
+    <ng-template pTemplate="end">
+        <div class="inline me-2">
+            <a *ngFor="let media of socialMedia" target="_blank" class="me-3 text-bluegray-500 align-items-center" [href]="media.url">
+                <i class="{{media.icon}} text-3xl"></i>
+            </a>
+        </div>
+        <button pButton pRipple class="p-button-sm p-button-rounded p-button-raised" icon="pi pi-sign-in" label="Acceso" routerLink="/auth"></button>
+    </ng-template>
+</p-menubar>
