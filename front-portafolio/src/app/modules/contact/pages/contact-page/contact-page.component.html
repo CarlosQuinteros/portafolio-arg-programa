@@ -1,5 +1,21 @@
 <app-nav-bar></app-nav-bar>
-<div class="container-fluid container-lg container-xxl vh-100">
-
+<div class="background-contact">
+    <div class="container container-lg container-xl container-xxl fadein animation-iteration-1 animation-duration-500 d-flex justify-content-center align-items-center vh-100">
+        <div class="card-contact col-11 bg-white shadow-2">
+            <div class="row d-flex">
+                <div class="col px-5">
+                    <h4 class="text-bluegray-500 my-4">Envíame un mensaje</h4>
+                    <app-contact-form></app-contact-form>
+                </div>
+                <div class="col-5 d-none d-sm-none d-md-none d-lg-block d-flex align-items-center">
+                    <img src="assets/contact-us-image.svg" class="img-fluid mx-auto d-block" alt="contact us image">
+                    <div class="row d-flex" *ngIf="persona">
+                        <span class="text-muted m-2"><i class="pi pi-map text-xl text-blue-500 me-2"></i>{{persona.domicilio.localidad}}</span>
+                        <span class="text-muted m-2"><i class="pi pi-at text-xl text-blue-500 me-2"></i>{{persona.correo}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <app-footer></app-footer>

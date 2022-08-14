@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FragmentService } from 'src/app/services/fragment.service';
@@ -15,11 +15,17 @@ export class HomePageComponent implements OnInit, OnDestroy{
   constructor(
     private activatedRoute : ActivatedRoute,
     private fragmentService : FragmentService
-  ) { }
-  
+  ) { }  
 
   ngOnInit(): void {
-    //this.obtenerFragment(); 
+    //this.obtenerFragment();
+    
+  }
+
+  jumpToSection(section: string): void {
+    if(!this.isInViewport(section)){
+      document.getElementById(section!)?.scrollIntoView({behavior:'smooth'});
+    }
   }
 
   obtenerFragment(){
@@ -27,10 +33,17 @@ export class HomePageComponent implements OnInit, OnDestroy{
       data => {
         this.fragment = data
         if(this.fragment!=''){
-          document.querySelector(`#${this.fragment}`)?.scrollIntoView();
+          document.querySelector(`#${this.fragment}`)?. scrollIntoView();
         } 
       }
     )    
+  }
+  
+  isInViewport(elem:string) {
+    var distance : any = document.getElementById(elem)?.getBoundingClientRect();
+    return (
+        distance.top < (window.innerHeight || document.documentElement.clientHeight) && distance.bottom > 0
+    );
   }
 
   ngOnDestroy(): void {

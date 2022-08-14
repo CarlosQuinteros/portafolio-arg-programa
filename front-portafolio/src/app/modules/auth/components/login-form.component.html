@@ -1,6 +1,6 @@
 <div class="row vh-100 justify-content-center align-items-center">
     <div class="card col-10 col-sm-9 col-md-7 col-lg-6 fadeinup animation-duration-1000 animation-iteration-1">
-        <p class="display-6 text-center p-2">INICIO DE SESION</p>
+        <p class="display-6 text-center p-2 text-bluegray-700">INICIO DE SESION</p>
         <p-divider></p-divider>
         <div class="row justify-content-center align-items-center">
             <div class="col-6 col-sm-5 col-md-5 my-auto d-block">
@@ -16,8 +16,9 @@
                         <label for="password" class="form-label" >Password</label>
                         <input type="password" class="form-control" placeholder="Ingrese su contraseña" required>
                     </div>                    
-                    <div class="p-2 d-flex justify-content-end">
-                        <button pButton pRipple class="p-button-rounded p-button-raised p-button" icon="pi pi-sign-in" label="Acceder"></button>
+                    <div class="p-2 d-flex justify-content-between">
+                        <button pButton pRipple type="button" class="p-button-text p-button-secondary" icon="pi pi-home" label="Home" routerLink="/home"></button>
+                        <button pButton pRipple type="submit" class="p-button-rounded p-button-raised p-button" icon="pi pi-sign-in" label="Acceder"></button>
                     </div>
                 </div>
             </div>

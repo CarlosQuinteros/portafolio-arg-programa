@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
 
   constructor(
     private fragmentService: FragmentService,
-    private router: Router
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
@@ -22,16 +22,11 @@ export class FooterComponent implements OnInit {
   }
 
   goToHomePage(): void {
-    this.router.navigate(['home']).then(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    })
+    this.router.navigate(['home'],{fragment:'portada',preserveFragment:false});
   }
 
   goToAboutSection(): void {
-    this.router.navigate(['home']).then(() => {
-      document.getElementById('about')?.scrollIntoView(true);
-      // document.querySelector('#about')?.scrollIntoView({behavior: 'smooth', block:'start', inline:'nearest'});
-    })
+    this.router.navigate(['home'],{fragment:'about'});
   }
 
 }

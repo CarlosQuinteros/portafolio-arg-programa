@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {ButtonModule} from 'primeng/button';
 import { SharedModule } from './shared/shared.module';
 import {RippleModule} from 'primeng/ripple';
+import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import {RippleModule} from 'primeng/ripple';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    RippleModule
+    RippleModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

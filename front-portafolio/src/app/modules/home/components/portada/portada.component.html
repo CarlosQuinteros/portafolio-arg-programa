@@ -10,7 +10,7 @@
           class="m-1 my-md-2 text-center"
           >
           <p class="fw-bold text-3xl">Hola 👋 soy</p>
-          <p class="display-5 fw-bold">Carlos Dante Quinteros</p>
+          <p class="display-5 fw-bold" *ngIf="persona">{{persona.nombres}} {{persona.apellido}}</p>
           <p class="text-4xl  fw-bold text-blue-600 ">
             Desarrollador web fullstack
           </p>
@@ -18,7 +18,8 @@
             pButton
             pRipple
             class="p-button-rounded p-button-raised m-3 mx-auto d-block"
-            icon="pi pi-book"
+            icon="pi pi-id-card"
+            routerLink="/contacto"
             label="Contacto"
           ></button>
         </div>

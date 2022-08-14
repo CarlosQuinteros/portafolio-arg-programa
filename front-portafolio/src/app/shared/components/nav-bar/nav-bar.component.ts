@@ -23,9 +23,7 @@ export class NavBarComponent implements OnInit {
   }
 
   goToAboutSection(): void {
-    this.router.navigate(['home']).then(
-      ()=>this.fragmentService.setFragment('about')
-    )
+    this.router.navigate(['home'],{fragment:'about'});
   }
 
   loadItems(): void {
@@ -33,8 +31,7 @@ export class NavBarComponent implements OnInit {
       {
         label:'Home',
         icon: 'pi pi-home',
-        routerLink: '/home',
-        target:''
+        routerLink: '/home'
       },
       {
         label:'Acerca de',
@@ -51,7 +48,8 @@ export class NavBarComponent implements OnInit {
         label:'Experiencia'
       },
       {
-        label:'Contacto'
+        label:'Contacto',
+        routerLink: '/contacto'
       },
       {
         label: 'Perfil',
