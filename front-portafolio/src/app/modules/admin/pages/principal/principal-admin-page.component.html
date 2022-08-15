@@ -1,0 +1,28 @@
+<app-nav-bar></app-nav-bar>
+<div class="container pt-2">
+    <div class="row my-3">
+        <div class="col">
+            <div class="p-card shadow-1" *ngIf="persona">
+                <div class="p-4">
+                    <p class="display-6">Bienvenido Admin</p>
+                    <p class="text-muted">Aquí podras actualizar toda la información de {{persona.apellido}}, {{persona.nombres}}</p>
+                </div>
+                <p-tabView>
+                    <p-tabPanel header="Datos">
+                        <app-editar-datos [persona]="persona"></app-editar-datos>
+                    </p-tabPanel>
+                    <p-tabPanel header="Educacion">
+                        Content 2
+                    </p-tabPanel>
+                    <p-tabPanel header="Habilidades">
+                        Content 3
+                    </p-tabPanel>
+                    <p-tabPanel header="Experiencia">
+
+                    </p-tabPanel>
+                    <p-tabPanel header="Proyectos"></p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+    </div>
+</div>

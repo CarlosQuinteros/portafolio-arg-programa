@@ -7,20 +7,28 @@
                 <img src="assets/login-amico.svg" class="img-fluid my-auto d-block" alt="login figure">
             </div>
             <div class="col-sm-7 col-md-7">
-                <div class="d-grid gap-1">
+                <form [formGroup]="form" class="d-grid gap-1" (ngSubmit)="onLogin()">
                     <div class="p-2">
                         <label for="usuario" class="form-label">Username</label>
-                        <input type="text" class="form-control" placeholder="Ingrese el nombre de usuario" required>
+                        <input formControlName="username" type="text" class="form-control" placeholder="Ingrese el nombre de usuario">
+                        <div *ngIf="UserName?.invalid && (UserName?.dirty || UserName?.touched)">
+                            <p-message styleClass="m-1"  *ngIf="UserName?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                            <p-message styleClass="m-1"  *ngIf="UserName?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+                        </div>
                     </div>
                     <div class="p-2">
-                        <label for="password" class="form-label" >Password</label>
-                        <input type="password" class="form-control" placeholder="Ingrese su contraseña" required>
+                        <label for="password" class="form-label">Password</label>
+                        <input formControlName="password" type="password" class="form-control" placeholder="Ingrese su contraseña">
+                        <div *ngIf="Password?.invalid && (Password?.dirty || Password?.touched)">
+                            <p-message styleClass="m-1"  *ngIf="Password?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                            <p-message styleClass="m-1"  *ngIf="Password?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+                        </div>
                     </div>                    
                     <div class="p-2 d-flex justify-content-between">
                         <button pButton pRipple type="button" class="p-button-text p-button-secondary" icon="pi pi-home" label="Home" routerLink="/home"></button>
-                        <button pButton pRipple type="submit" class="p-button-rounded p-button-raised p-button" icon="pi pi-sign-in" label="Acceder"></button>
+                        <button pButton pRipple type="submit" class="p-button-rounded p-button-raised p-button" icon="pi pi-sign-in" label="Acceder" [disabled]="!form.valid"></button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

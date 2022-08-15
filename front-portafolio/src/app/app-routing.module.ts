@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'contacto',
     loadChildren: () => import('./modules/contact/contact.module').then(m => m.ContactModule)
   },
+  {
+    path: 'zona-admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+  },
   {path:'**', component:PageNotFoundComponent}
 ];
 

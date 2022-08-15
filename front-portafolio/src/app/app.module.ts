@@ -7,6 +7,7 @@ import {ButtonModule} from 'primeng/button';
 import { SharedModule } from './shared/shared.module';
 import {RippleModule} from 'primeng/ripple';
 import {HttpClientModule} from '@angular/common/http'
+import { interceptorProvider } from './core/interceptors/usuario-interceptor.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {HttpClientModule} from '@angular/common/http'
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

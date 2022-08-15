@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ButtonModule } from 'primeng/button';
 import { AboutComponent } from './components/about/about.component';
 import { RippleModule } from 'primeng/ripple';
+import {ScrollTopModule} from 'primeng/scrolltop';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RippleModule } from 'primeng/ripple';
     HomeRoutingModule,
     SharedModule,
     ButtonModule,
-    RippleModule
+    RippleModule,
+    ScrollTopModule
   ]
 })
 export class HomeModule { }

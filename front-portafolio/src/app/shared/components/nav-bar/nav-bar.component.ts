@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
 import { FragmentService } from 'src/app/services/fragment.service';
 import { TokenServiceService } from 'src/app/services/token-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav-bar',
@@ -24,8 +25,16 @@ export class NavBarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadItems();
     this.isLogged = this.tokenService.isLogged();
+    this.loadItems();
+  }
+
+  logOut(): void {
+    this.tokenService.logOut();
+    this.isLogged = false;
+    this.loadItems();
+    Swal.fire('Finalizaste la sesion correctamente', '', 'success');
+    this.router.navigate(['/home']);
   }
 
   goToAboutSection(): void {
@@ -59,18 +68,9 @@ export class NavBarComponent implements OnInit {
       },
       {
         label: 'Perfil',
-        visible: false,
-        icon: 'pi pi-user',
-        items: [
-          {
-            label: 'Editar Datos',
-            icon: 'pi pi-user-edit'
-          },
-          {
-            label: 'Salir',
-            icon: 'pi pi-sign-out'
-          }
-        ]
+        visible: this.isLogged,
+        routerLink: '/zona-admin',
+        icon: 'pi pi-user-edit'
       }
     ];
   }

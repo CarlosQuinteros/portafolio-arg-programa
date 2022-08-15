@@ -5,6 +5,7 @@
                 <i class="{{media.icon}} text-3xl"></i>
             </a>
         </div>
+        <button *ngIf="isLogged" pButton pRipple class="p-button-sm p-button-rounded p-button-secondary p-button-raised" icon="pi pi-sign-out" label="Salir" (click)="logOut()"></button>
         <button *ngIf="!isLogged" pButton pRipple class="p-button-sm p-button-rounded p-button-raised" icon="pi pi-sign-in" label="Acceso" routerLink="/auth"></button>
     </ng-template>
 </p-menubar>

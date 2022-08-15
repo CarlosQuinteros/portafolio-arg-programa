@@ -1,0 +1,102 @@
+<form [formGroup]="form" (ngSubmit)="editarDatos()">
+    <div class="row p-3">
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelnombre" class="form-label">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control">
+            <div *ngIf="Nombre?.invalid && (Nombre?.dirty || Nombre?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Nombre?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Nombre?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelapellido" class="form-label">Apellido</label>
+            <input type="text" formControlName="apellido" class="form-control">
+            <div *ngIf="Apellido?.invalid && (Apellido?.dirty || Apellido?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Apellido?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Apellido?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labeldoc" class="form-label">DNI</label>
+            <input type="text" formControlName="documento" class="form-control">
+            <div *ngIf="Documento?.invalid && (Documento?.dirty || Documento?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelcorreo" class="form-label">Correo</label>
+            <input type="email" formControlName="correo" class="form-control">
+            <div *ngIf="Correo?.invalid && (Correo?.dirty || Correo?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Correo?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Correo?.errors?.email"  severity="error" text="Debe tener el formato correcto"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelfecha" class="form-label">Fecha nacimiento</label>
+            <input type="date" formControlName="fechaNacimiento" class="form-control">
+            <div *ngIf="FechaNacimiento?.invalid && (FechaNacimiento?.dirty || FechaNacimiento?.touched)">
+                <p-message styleClass="m-1"  *ngIf="FechaNacimiento?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labeltelefono" class="form-label">Telefono</label>
+            <input type="text" formControlName="telefono" class="form-control">
+            <div *ngIf="Telefono?.invalid && (Telefono?.dirty || Telefono?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Telefono?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Telefono?.errors?.minlength"  severity="error" text="Debe tener al menos 10 caracteres"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelcalle" class="form-label">Calle</label>
+            <input type="text" formControlName="calle" class="form-control">
+            <div *ngIf="Calle?.invalid && (Calle?.dirty || Calle?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Calle?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Calle?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelnum" class="form-label">Numero</label>
+            <input type="number" formControlName="numero" class="form-control">
+            <div *ngIf="Numero?.invalid && (Numero?.dirty || Numero?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Numero?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Numero?.errors?.min"  severity="error" text="El minimo es 1"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labellocalidad" class="form-label">Localidad</label>
+            <input type="text" formControlName="localidad" class="form-control">
+            <div *ngIf="Localidad?.invalid && (Localidad?.dirty || Localidad?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Localidad?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Localidad?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelfecha" class="form-label">Sobre mi</label>
+            <textarea rows="3" class="form-control" formControlName="acercaDe"></textarea>
+            <div *ngIf="AcercaDe?.invalid && (AcercaDe?.dirty || AcercaDe?.touched)">
+                <p-message styleClass="m-1"  *ngIf="AcercaDe?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="AcercaDe?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelurlimg" class="form-label">Url Imagen</label>
+            <input type="text" formControlName="urlImagen" class="form-control">
+            <div *ngIf="UrlImagen?.invalid && (UrlImagen?.dirty || UrlImagen?.touched)">
+                <p-message styleClass="m-1"  *ngIf="UrlImagen?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="UrlImagen?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <label for="labelurlcv" class="form-label">Url CV</label>
+            <input type="text" formControlName="urlCurriculum" class="form-control">
+            <div *ngIf="UrlCurriculum?.invalid && (UrlCurriculum?.dirty || UrlCurriculum?.touched)">
+                <p-message styleClass="m-1"  *ngIf="UrlCurriculum?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="UrlCurriculum?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-end">
+        <button type="submit" pRipple pButton class="p-button-rounded p-button-raised" icon="pi pi-check" label="Guardar" [disabled]="!form.valid"></button>
+    </div>
+</form>
