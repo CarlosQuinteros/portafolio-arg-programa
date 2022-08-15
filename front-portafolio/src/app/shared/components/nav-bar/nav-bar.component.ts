@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
 import { FragmentService } from 'src/app/services/fragment.service';
+import { TokenServiceService } from 'src/app/services/token-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,16 +11,21 @@ import { FragmentService } from 'src/app/services/fragment.service';
 })
 export class NavBarComponent implements OnInit {
 
+  isLogged : boolean = false;
   items : MenuItem[] = [];
   socialMedia = [
     {label: 'Facebook', url:'https://www.facebook.com/carlix.quinteros/', icon: 'pi pi-facebook'},
     {label: 'Linkedin', url:'https://www.linkedin.com/in/carlos-quinteros-702356123/', icon: 'pi pi-linkedin'},
     {label: 'GitHub', url:'https://github.com/CarlosQuinteros', icon: 'pi pi-github'}
   ]
-  constructor(private router : Router, private fragmentService : FragmentService) {}
+  constructor(
+    private router : Router,
+    private tokenService : TokenServiceService
+  ) {}
 
   ngOnInit(): void {
     this.loadItems();
+    this.isLogged = this.tokenService.isLogged();
   }
 
   goToAboutSection(): void {

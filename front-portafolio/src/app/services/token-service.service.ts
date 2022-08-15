@@ -36,14 +36,12 @@ export class TokenServiceService {
   }
 
   public isLogged():boolean{
-    return this.getToken() ? true : false;
+    return (this.getToken() !== null && this.isAdmin());
   }
 
   public getAuthorities():string[]{
-    if(!this.isLogged()){
-      return [];
-    }
     const token = this.getToken();
+    if(token === null) return [];
     const payload: any = token?.split('.')[1];
     const payloadDecoded = atob(payload);
     const values = JSON.parse(payloadDecoded);
@@ -54,15 +52,8 @@ export class TokenServiceService {
   }
 
   public isAdmin(): boolean{
-    if(!this.isLogged()){
-      return false;
-    }
     const roles = this.getAuthorities();
-    
-    if(!roles.includes('ROLE_ADMIN')){
-      return false;
-    }
-    return true;
+    return roles.includes('ROLE_ADMIN');
   }
 
   public logOut(): void {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginDto } from 'src/app/core/dtos/login-dto';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
+  loginDto : LoginDto = new LoginDto('','');
+
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
