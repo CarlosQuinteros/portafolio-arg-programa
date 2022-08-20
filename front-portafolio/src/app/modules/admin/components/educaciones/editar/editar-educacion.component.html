@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="editarEducacion()" id="bodyEducacion">
+    <div class="row p-3">
+        <div class="col-12">
+            <label for="labelInst" class="form-label">Institucion</label>
+            <input type="text" formControlName="institucion" class="form-control p-inputtext" placeholder="Institucion">
+            <!-- <div *ngIf="Nombre?.invalid && (Nombre?.dirty || Nombre?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Nombre?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Nombre?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+            </div> -->
+        </div>
+        <div class="col-12">
+            <label for="labelTitulo" class="form-label">Titulo</label>
+            <input type="text" formControlName="titulo" class="form-control p-inputtext" placeholder="Titulo">
+            <!-- <div *ngIf="Apellido?.invalid && (Apellido?.dirty || Apellido?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Apellido?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Apellido?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+            </div> -->
+        </div>
+        <div class="col-12">
+            <label for="labelimagen" class="form-label">Url Imagen</label>
+            <input type="text" formControlName="urlImagen" class="form-control p-inputtext" placeholder="Url de la imagen">
+            <!-- <div *ngIf="Documento?.invalid && (Documento?.dirty || Documento?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div> -->
+        </div>
+        <div class="col-12">
+            <label for="labelfechadesde" class="form-label">Fecha Desde</label>
+            <input type="date" formControlName="fechaDesde" class="form-control p-inputtext" placeholder="Fecha desde">
+            <!-- <div *ngIf="Documento?.invalid && (Documento?.dirty || Documento?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div> -->
+        </div>
+        <div class="col-12">
+            <label for="labelfechahasta" class="form-label">Fecha Hasta</label>
+            <input type="date" formControlName="fechaHasta" class="form-control p-inputtext" placeholder="Fecha hasta">
+            <!-- <div *ngIf="Documento?.invalid && (Documento?.dirty || Documento?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div> -->
+        </div>
+        <div class="d-flex justify-content-end">
+            <button pRipple pButton class="p-button-raised p-button-rounded" icon="pi pi-check" label="Guardar" [disabled]="!form.valid"></button>
+        </div>
+    </div>
+</form>

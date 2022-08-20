@@ -1,0 +1,31 @@
+<button pRipple pButton class="p-button-raised p-button-rounded my-2" icon="pi pi-plus" label="Nueva experiencia" (click)="showCrearExperiencia()"></button>
+<p-table [value]="experiencias" [loading]="loading"
+    styleClass="p-datatable-sm p-datatable-striped" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Organizacion</th>
+            <th>Imagen</th>
+            <th>Puesto</th>
+            <th>Tareas</th>
+            <th>Tipo Jornada</th>
+            <th>Desde</th>
+            <th>Hasta</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-experiencia>
+        <tr>
+            <td>{{experiencia.organizacion}}</td>
+            <td> <img [src]="experiencia.urlImagen" alt="experiencia" width="50px"></td>
+            <td>{{experiencia.puesto}}</td>
+            <td>{{experiencia.tareas}}</td>
+            <td>{{experiencia.tipoJornada}}</td>
+            <td>{{experiencia.fechaDesde | date:'MM/yyyy'}}</td>
+            <td>{{experiencia.fechaHasta === null ? 'Actualidad' : experiencia.fechaHasta | date:'MM/yyyy'}}</td>
+            <td>
+                <button pRipple pButton class="p-button-sm p-button-text m-1" icon="pi pi-pencil" (click)="showEditarExperiencia(experiencia)"></button>
+                <button pRipple pButton class="p-button-sm p-button-text p-button-danger m-1" icon="pi pi-trash" (click)="eliminarExperiencia(experiencia.id)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

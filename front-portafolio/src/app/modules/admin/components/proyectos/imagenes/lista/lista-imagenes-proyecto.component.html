@@ -1,0 +1,38 @@
+<app-nav-bar></app-nav-bar>
+<div class="container pt-2">
+    <div class="row my-3">
+        <div class="col">
+            <div class="p-card shadow-1">
+                <div class="p-4">
+                    <p class="display-6">Bienvenido Admin</p>
+                </div>
+                <p-tabView *ngIf="proyecto">
+                    <p-tabPanel header="Detalle Proyecto">
+                        <p class="text-muted">{{proyecto.nombre}}</p>
+                        <button pRipple pButton class="p-button-raised p-button-rounded my-2" icon="pi pi-plus" label="Nueva imagen" (click)="showCrearImagen()"></button>
+                        <p-table [value]="proyecto.imagenes" [loading]="loading"
+                            styleClass="p-datatable-sm p-datatable-striped" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>Url Imagen</th>
+                                    <th>Descripcion</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-imagen>
+                                <tr>
+                                    <td>{{imagen.descripcion}}</td>
+                                    <td> <img [src]="imagen.url" alt="img-proyecto" width="50px"></td>
+                                    <td>
+                                        <button pRipple pButton class="p-button-sm p-button-text m-1" icon="pi pi-pencil" (click)="showEditarImagen(imagen)"></button>
+                                        <button pRipple pButton class="p-button-sm p-button-text p-button-danger m-1" icon="pi pi-trash" (click)="eliminarImagen(imagen.id)"></button>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+    </div>
+</div>

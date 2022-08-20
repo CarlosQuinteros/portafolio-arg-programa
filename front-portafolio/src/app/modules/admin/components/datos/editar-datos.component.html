@@ -73,7 +73,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4">
             <label for="labelfecha" class="form-label">Sobre mi</label>
-            <textarea rows="3" class="form-control" formControlName="acercaDe"></textarea>
+            <textarea rows="3" class="form-control max-h-10rem" formControlName="acercaDe"></textarea>
             <div *ngIf="AcercaDe?.invalid && (AcercaDe?.dirty || AcercaDe?.touched)">
                 <p-message styleClass="m-1"  *ngIf="AcercaDe?.errors?.required"  severity="error" text="Campo requerido"></p-message>
                 <p-message styleClass="m-1"  *ngIf="AcercaDe?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>

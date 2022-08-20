@@ -1,0 +1,31 @@
+<button pRipple pButton class="p-button-raised p-button-rounded my-2" icon="pi pi-plus" label="Nuevo proyecto" (click)="showCrearProyecto()"></button>
+<p-table [value]="proyectos" [loading]="loading"
+    styleClass="p-datatable-sm p-datatable-striped" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Repositorio</th>
+            <th>Imagenes</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-proyecto>
+        <tr>
+            <td>{{proyecto.nombre}}</td>
+            <td>{{proyecto.descripcion}}</td>
+            <td>{{proyecto.urlRepositorio}}</td>
+            <td>
+                <p *ngIf="proyecto.imagenes.length === 0"> Sin imagenes</p>
+                <p-avatarGroup>
+                    <p-avatar *ngFor="let imagen of proyecto.imagenes" [image]="imagen.url" size="large" shape="circle"></p-avatar>
+                </p-avatarGroup>
+            </td>
+            <td>
+                <button pRipple pButton class="p-button-sm p-button-text m-1" icon="pi pi-images" routerLink="/zona-admin/proyectos/{{proyecto.id}}/imagenes"></button>
+                <button pRipple pButton class="p-button-sm p-button-text m-1" icon="pi pi-pencil" (click)="showEditarProyecto(proyecto)"></button>
+                <button pRipple pButton class="p-button-sm p-button-text p-button-danger m-1" icon="pi pi-trash" (click)="eliminarProyecto(proyecto.id)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

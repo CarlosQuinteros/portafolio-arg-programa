@@ -1,0 +1,27 @@
+<button pRipple pButton class="p-button-raised p-button-rounded my-2" icon="pi pi-plus" label="Nueva educacion" (click)="showCrearEducacion()"></button>
+<p-table [value]="educaciones" [loading]="loading"
+    styleClass="p-datatable-sm p-datatable-striped" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Institucion</th>
+            <th>Imagen</th>
+            <th>Titulo</th>
+            <th>Fecha Desde</th>
+            <th>Fecha Hasta</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-educacion>
+        <tr>
+            <td>{{educacion.institucion}}</td>
+            <td> <img [src]="educacion.urlImagen" alt="educacion" width="50px"></td>
+            <td>{{educacion.titulo}}</td>
+            <td>{{educacion.fechaDesde | date:'yyyy'}}</td>
+            <td>{{educacion.fechaHasta | date:'yyyy'}}</td>
+            <td>
+                <button pRipple pButton class="p-button-sm p-button-text m-1" icon="pi pi-pencil" (click)="showEditarEducacion(educacion)"></button>
+                <button pRipple pButton class="p-button-sm p-button-text p-button-danger m-1" icon="pi pi-trash" (click)="eliminarEducacion(educacion.id)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -7,20 +7,22 @@
                     <p class="display-6">Bienvenido Admin</p>
                     <p class="text-muted">Aquí podras actualizar toda la información de {{persona.apellido}}, {{persona.nombres}}</p>
                 </div>
-                <p-tabView>
+                <p-tabView [scrollable]="true">
                     <p-tabPanel header="Datos">
                         <app-editar-datos [persona]="persona"></app-editar-datos>
                     </p-tabPanel>
-                    <p-tabPanel header="Educacion">
-                        Content 2
+                    <p-tabPanel header="Educaciones">
+                        <app-lista-educaciones [persona]="persona"></app-lista-educaciones>
                     </p-tabPanel>
                     <p-tabPanel header="Habilidades">
-                        Content 3
+                        <app-lista-habilidades [persona]="persona"></app-lista-habilidades>
                     </p-tabPanel>
-                    <p-tabPanel header="Experiencia">
-
+                    <p-tabPanel header="Experiencias">
+                        <app-lista-experiencias [persona]="persona"></app-lista-experiencias>
                     </p-tabPanel>
-                    <p-tabPanel header="Proyectos"></p-tabPanel>
+                    <p-tabPanel header="Proyectos">
+                        <app-lista-proyectos [persona]="persona"></app-lista-proyectos>
+                    </p-tabPanel>
                 </p-tabView>
             </div>
         </div>

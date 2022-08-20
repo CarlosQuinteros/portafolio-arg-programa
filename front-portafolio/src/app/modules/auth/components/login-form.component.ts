@@ -45,6 +45,7 @@ export class LoginFormComponent implements OnInit {
 
   onLogin(): void {
     const loginDto : LoginDto = {...this.form.value};
+    Swal.showLoading();
     this.authService.login(loginDto).subscribe(
       data => {
         this.jwtDto = data;

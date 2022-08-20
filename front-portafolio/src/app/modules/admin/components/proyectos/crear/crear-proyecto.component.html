@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="crearProyecto()" id="bodyProyecto">
+    <div class="row p-3">
+        <div class="col-12">
+            <label for="labelnombre" class="form-label">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control p-inputtext" placeholder="Nombre del proyecto">
+            <!-- <div *ngIf="Nombre?.invalid && (Nombre?.dirty || Nombre?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Nombre?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Nombre?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+            </div> -->
+        </div>
+        <div class="col-12">
+            <label for="labeldesc" class="form-label">Descripcion</label>
+            <textarea formControlName="descripcion" class="form-control p-inputtext max-h-10rem" cols="3" rows="3" placeholder="Descripcion del proyecto"></textarea>
+            <!-- <div *ngIf="Apellido?.invalid && (Apellido?.dirty || Apellido?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Apellido?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Apellido?.errors?.minlength"  severity="error" text="Debe tener al menos 4 caracteres"></p-message>
+            </div> -->
+        </div>
+        <div class="col-12">
+            <label for="labelurlrepo" class="form-label">Repositorio</label>
+            <input type="text" formControlName="urlRepositorio" class="form-control p-inputtext" placeholder="Url del repositorio">
+            <!-- <div *ngIf="Documento?.invalid && (Documento?.dirty || Documento?.touched)">
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.required"  severity="error" text="Campo requerido"></p-message>
+                <p-message styleClass="m-1"  *ngIf="Documento?.errors?.minlength"  severity="error" text="Debe tener al menos 8 caracteres"></p-message>
+            </div> -->
+        </div>
+        <div class="d-flex justify-content-end">
+            <button pRipple pButton class="p-button-raised p-button-rounded" icon="pi pi-check" label="Guardar" [disabled]="!form.valid"></button>
+        </div>
+    </div>
+</form>
