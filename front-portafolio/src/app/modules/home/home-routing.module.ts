@@ -3,19 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { PortadaComponent } from './components/portada/portada.component';
 import { HomePageComponent } from './pages/home/home-page.component';
+import { ImagenesProyectoComponent } from './pages/proyectos/imagenes/imagenes-proyecto.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent,
     children:[
       {
-        path: 'portada',
-        component: PortadaComponent
+        path: '', component: HomePageComponent
       },
       {
-        path: 'about',
-        component: AboutComponent
+        path: 'proyectos/:id/imagenes',
+        component: ImagenesProyectoComponent
       }
     ]
 

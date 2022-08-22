@@ -37,8 +37,24 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  goToAboutSection(): void {
+  irASobreMi(): void {
     this.router.navigate(['home'],{fragment:'about'});
+  }
+
+  irAHabilidades(): void {
+    this.router.navigate(['home'],{fragment:'habilidades'});
+  }
+
+  irAProyectos(): void {
+    this.router.navigate(['home'],{fragment:'proyectos'});
+  }
+
+  irAEducaciones(): void {
+    this.router.navigate(['home'],{fragment:'educaciones'});
+  }
+
+  irAExperiencias(): void {
+    this.router.navigate(['home'],{fragment:'experiencias'});
   }
 
   loadItems(): void {
@@ -50,18 +66,21 @@ export class NavBarComponent implements OnInit {
       },
       {
         label:'Acerca de',
-        routerLink: '/home',
-        command: ()=> this.goToAboutSection()
+        command: ()=> this.irASobreMi()
       },
-      {
-        label:'Habilidades'
-      },
-      {
-        label:'Proyectos'
-      },
-      {
-        label:'Experiencia'
-      },
+      // {
+      //   label:'Habilidades',
+      //   command: ()=> this.irAHabilidades()
+      // },
+      // {
+      //   label:'Proyectos',
+      //   routerLink: '/home',
+      //   command: ()=> this.irAProyectos()
+      // },
+      // {
+      //   label:'Experiencia',
+      //   command: ()=> this.irAExperiencias()
+      // },
       {
         label:'Contacto',
         routerLink: '/contacto'

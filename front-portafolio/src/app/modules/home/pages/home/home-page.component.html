@@ -1,5 +1,9 @@
 <app-nav-bar></app-nav-bar>
 <app-portada id="portada"></app-portada>
 <app-about id="about"></app-about>
+<app-experiencias *ngIf="persona" id="experiencias" [persona]="persona"></app-experiencias>
+<app-educaciones *ngIf="persona" id="educaciones" [persona]="persona"></app-educaciones>
+<app-habilidades *ngIf="persona" id="habilidades" [persona]="persona"></app-habilidades>
+<app-proyectos *ngIf="persona" id="proyectos" [persona]="persona"></app-proyectos>
 <app-footer></app-footer>
 <p-scrollTop></p-scrollTop>

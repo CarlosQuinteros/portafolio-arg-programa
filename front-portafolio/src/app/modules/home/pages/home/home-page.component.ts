@@ -1,7 +1,10 @@
 import { AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Persona } from 'src/app/core/models/persona';
 import { FragmentService } from 'src/app/services/fragment.service';
+import { PersonaService } from 'src/app/services/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home-page',
@@ -10,16 +13,30 @@ import { FragmentService } from 'src/app/services/fragment.service';
 })
 export class HomePageComponent implements OnInit, OnDestroy{
 
+  persona! : Persona;
   private fragment: string  = '';
   private suscription : Subscription = new Subscription();
+  private DNI: string = '38223076';
+
   constructor(
     private activatedRoute : ActivatedRoute,
-    private fragmentService : FragmentService
+    private fragmentService : FragmentService,
+    private personaService : PersonaService
   ) { }  
 
   ngOnInit(): void {
-    //this.obtenerFragment();
-    
+    this.obtenerPersona();
+  }
+
+  obtenerPersona(): void {
+    this.personaService.detallePersonaPorDni(this.DNI).subscribe(
+      data => {
+        this.persona = data;
+      },
+      err => {
+        Swal.fire('Error', err.error.message, 'error');
+      }
+    )
   }
 
   jumpToSection(section: string): void {

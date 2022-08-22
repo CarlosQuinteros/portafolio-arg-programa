@@ -1,0 +1,19 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="row my-4" *ngIf="proyecto">
+        <p class="text-bluegray-700 text-bold text-3xl">{{proyecto.nombre}}</p>
+        <p class="text-muted">{{proyecto.descripcion}}</p>
+        <p class="text-muted" *ngIf="proyecto.imagenes.length === 0">Sin imagenes</p>
+        <p-galleria styleClass="mt-4" [value]="proyecto.imagenes" [responsiveOptions]="responsiveOptions" [numVisible]="7">
+            <ng-template pTemplate="item" let-imagen>
+                <!-- <img [src]="imagen.url" [alt]="imagen.descripcion" width="70%"/> -->
+                <p-image [src]="imagen.url" styleClass="text-center" alt="img-proyecto" width="70%" [preview]="true"></p-image>
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="item.url"  width="100px"/>
+                </div>
+            </ng-template>
+        </p-galleria>
+    </div>
+</div>

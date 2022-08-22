@@ -14,7 +14,7 @@
         <tr>
             <td>{{proyecto.nombre}}</td>
             <td>{{proyecto.descripcion}}</td>
-            <td>{{proyecto.urlRepositorio}}</td>
+            <td>{{proyecto.urlRepositorio.split('/').pop()}}</td>
             <td>
                 <p *ngIf="proyecto.imagenes.length === 0"> Sin imagenes</p>
                 <p-avatarGroup>

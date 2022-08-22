@@ -1,0 +1,13 @@
+<div class="container my-5">
+    <p class="text-3xl mt-4 fw-bold text-center text-bluegray-600">Habilidades</p>
+    <div class="row d-flex justify-content-center mt-4">
+        <div class="col-6 col-md-4 col-lg-2 text-center" *ngFor="let habilidad of habilidades">
+            <circle-progress
+                [imageSrc]="habilidad.urlImagen"
+                [percent]="habilidad.porcentaje"
+            pTooltip={{habilidad.descripcion}} tooltipPosition="top">
+            </circle-progress>
+            <p class="text-bluegray-600 font-bold mt-1">{{habilidad.porcentaje}}%</p>
+        </div>
+    </div>
+</div>
