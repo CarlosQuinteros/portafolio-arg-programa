@@ -29,38 +29,16 @@ export class HomePageComponent implements OnInit, OnDestroy{
   }
 
   obtenerPersona(): void {
+    Swal.showLoading()
     this.personaService.detallePersonaPorDni(this.DNI).subscribe(
       data => {
+        Swal.close();
         this.persona = data;
       },
       err => {
         Swal.fire('Error', err.error.message, 'error');
       }
     )
-  }
-
-  jumpToSection(section: string): void {
-    if(!this.isInViewport(section)){
-      document.getElementById(section!)?.scrollIntoView({behavior:'smooth'});
-    }
-  }
-
-  obtenerFragment(){
-    this.suscription = this.fragmentService.getFragment().subscribe(
-      data => {
-        this.fragment = data
-        if(this.fragment!=''){
-          document.querySelector(`#${this.fragment}`)?. scrollIntoView();
-        } 
-      }
-    )    
-  }
-  
-  isInViewport(elem:string) {
-    var distance : any = document.getElementById(elem)?.getBoundingClientRect();
-    return (
-        distance.top < (window.innerHeight || document.documentElement.clientHeight) && distance.bottom > 0
-    );
   }
 
   ngOnDestroy(): void {
