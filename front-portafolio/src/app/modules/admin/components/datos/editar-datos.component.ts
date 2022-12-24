@@ -110,6 +110,7 @@ export class EditarDatosComponent implements OnInit {
   editarDatos(): void {
     const personaDto : PersonaDto = {...this.form.value};
     //console.log(personaDto);
+    Swal.showLoading();
     this.personaService.editarPersona(this.persona.id, personaDto).subscribe(
       data => {
         this.obtenerPersona();
