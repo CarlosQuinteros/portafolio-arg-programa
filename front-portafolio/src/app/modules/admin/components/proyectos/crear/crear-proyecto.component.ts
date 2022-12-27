@@ -15,6 +15,7 @@ export class CrearProyectoComponent implements OnInit {
   
   persona!: Persona;
   form : FormGroup;
+  loading : boolean = false;
 
   constructor(
     private proyectoService: ProyectoService,
@@ -37,13 +38,16 @@ export class CrearProyectoComponent implements OnInit {
 
    crearProyecto(): void {
     const proyecto : ProyectoDto = {...this.form.value};
-    Swal.showLoading();
+    //Swal.showLoading();
+    this.loading = true;
     this.proyectoService.crearProyecto(proyecto).subscribe(
       data =>{
+        this.loading = false;
         Swal.fire(data.message, '', 'success');
         this.ref.close();
       },
       err =>{
+        this.loading = false;
         Swal.fire({
           title: 'Error',
           text: err.error.message,

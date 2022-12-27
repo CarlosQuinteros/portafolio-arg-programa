@@ -17,6 +17,7 @@ export class EditarImagenProyectoComponent implements OnInit {
   proyecto!: Proyecto;
   imagen! : ImagenProyecto;
   form : FormGroup;
+  loading : boolean = false;
 
   constructor(
     public ref : DynamicDialogRef,
@@ -37,13 +38,16 @@ export class EditarImagenProyectoComponent implements OnInit {
 
   crearImagenProyecto(): void {
     const imagen : ImagenProyectoDto = {...this.form.value};
-    Swal.showLoading();
+    //Swal.showLoading();
+    this.loading = true;
     this.imagenProyectoService.editarImagenProyecto(this.imagen.id, imagen).subscribe(
       data => {
+        this.loading = false;
         Swal.fire(data.message, '', 'success');
         this.ref.close();
       },
       err =>{
+        this.loading = false;
         Swal.fire({
           title: 'Error',
           text: err.error.message,

@@ -18,6 +18,7 @@ export class EditarExperienciaComponent implements OnInit {
   persona! : Persona;
   form : FormGroup;
   tipoJornadas : string[] = ['PARCIAL', 'TOTAL'];
+  loading : boolean = false;
   
   constructor(
     private experienciasService : ExperienciaLaboralService,
@@ -46,13 +47,16 @@ export class EditarExperienciaComponent implements OnInit {
 
   editarExperiencia(): void {
     const experiencia : ExperienciaDto = {...this.form.value};
-    Swal.showLoading();
+    //Swal.showLoading();
+    this.loading = true;
     this.experienciasService.editarExperienciaLaboral(this.experiencia.id, experiencia).subscribe(
       data => {
+        this.loading = false;
         Swal.fire(data.message, '', 'success');
         this.ref.close();
       },
       err => {
+        this.loading = false;
         Swal.fire({
           title: 'Error',
           text: err.error.message,

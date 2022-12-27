@@ -16,6 +16,7 @@ export class CrearEducacionComponent implements OnInit {
 
   persona!: Persona;
   form : FormGroup;
+  loading : boolean = false;
   
   constructor(
     private educacionService : EducacionService,
@@ -39,13 +40,16 @@ export class CrearEducacionComponent implements OnInit {
 
   crearEducacion(): void {
     const educacion : EducacionDto = {...this.form.value};
-    Swal.showLoading();
+    //Swal.showLoading();
+    this.loading = true;
     this.educacionService.crearEducacion(educacion).subscribe(
       data => {
+        this.loading = false;
         Swal.fire(data.message, '', 'success');
         this.ref.close();
       },
       err =>{
+        this.loading = false;
         Swal.fire({
           title: 'Error',
           text: err.error.message,

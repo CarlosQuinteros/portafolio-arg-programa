@@ -17,6 +17,7 @@ export class EditarProyectoComponent implements OnInit {
   persona!: Persona;
   proyecto!: Proyecto;
   form : FormGroup;
+  loading : boolean = false;
 
   constructor(
     private proyectoService: ProyectoService,
@@ -40,13 +41,16 @@ export class EditarProyectoComponent implements OnInit {
 
    editarProyecto(): void {
     const proyecto : ProyectoDto = {...this.form.value};
-    Swal.showLoading();
+    //Swal.showLoading();
+    this.loading = true;
     this.proyectoService.editarProyecto(this.proyecto.id, proyecto).subscribe(
       data =>{
+        this.loading = false;
         Swal.fire(data.message, '', 'success');
         this.ref.close();
       },
       err =>{
+        this.loading = false;
         Swal.fire({
           title: 'Error',
           text: err.error.message,

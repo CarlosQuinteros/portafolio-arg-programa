@@ -17,6 +17,7 @@ export class EditarEducacionComponent implements OnInit {
   persona! :Persona;
   educacion! :Educacion;
   form : FormGroup;
+  loading : boolean = false;
 
   constructor(
     private educacionService : EducacionService,
@@ -42,13 +43,16 @@ export class EditarEducacionComponent implements OnInit {
 
   editarEducacion(): void {
     const educacion : EducacionDto = {...this.form.value};
-    Swal.showLoading();
+    //Swal.showLoading();
+    this.loading = true;
     this.educacionService.editarEducacion(this.educacion.id, educacion).subscribe(
       data => {
+        this.loading = false;
         Swal.fire(data.message, '', 'success');
         this.ref.close();
       },
       err => {
+        this.loading = false;
         Swal.fire({
           title: 'Error',
           text: err.error.message,

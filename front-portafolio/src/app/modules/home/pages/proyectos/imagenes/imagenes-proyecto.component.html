@@ -1,5 +1,10 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
+    <div class="row vh-100 justify-content-center align-items-center" *ngIf="!proyecto">
+        <div class="col-auto text-center">
+            <i class="pi pi-spin pi-spinner" style="font-size: 3rem"></i>
+        </div>
+    </div>
     <div class="row my-4" *ngIf="proyecto">
         <p class="text-bluegray-700 text-bold text-3xl">{{proyecto.nombre}}</p>
         <p class="text-muted">{{proyecto.descripcion}}</p>

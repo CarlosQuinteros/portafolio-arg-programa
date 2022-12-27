@@ -17,6 +17,7 @@ export class EditarHabilidadComponent implements OnInit {
   habilidad!: Habilidad;
   persona! : Persona;
   form : FormGroup;
+  loading : boolean = false;
 
   constructor(
     private habilidadService: HabilidadService,
@@ -39,13 +40,16 @@ export class EditarHabilidadComponent implements OnInit {
 
   editarHabilidad(): void{
     const habilidad : HabilidadDto = {...this.form.value};
-    Swal.showLoading();
+    //Swal.showLoading();
+    this.loading = true;
     this.habilidadService.editarHabilidad(this.habilidad.id, habilidad).subscribe(
       data =>{
+        this.loading = false;
         Swal.fire(data.message, '', 'success');
         this.ref.close();
       },
       err =>{
+        this.loading = false;
         Swal.fire({
           title: 'Error',
           text: err.error.message,
