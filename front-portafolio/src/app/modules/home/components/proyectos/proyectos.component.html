@@ -1,23 +1,29 @@
 <div class="container container-fluid my-5">
     <p class="text-3xl mt-4 fw-bold text-center text-bluegray-600">Proyectos</p>
-    <p-carousel styleClass="my-5" [value]="proyectos" [numVisible]="3" [numScroll]="2" [circular]="true" [responsiveOptions]="responsiveOptions">
-        <ng-template let-proyecto pTemplate="item">
-            <div class="p-card p-auto m-auto p-md-2 m-md-2 shadow-1">
-                <div class="text-center">
-                    <div class="mb-3">
-                        <p *ngIf="proyecto.imagenes.length === 0"> Sin imagenes</p>
-                        <p-avatarGroup styleClass="justify-content-center">
-                            <p-avatar *ngFor="let imagen of proyecto.imagenes" [image]="imagen.url" size="large" shape="circle"></p-avatar>
-                        </p-avatarGroup>
-                    </div>
-                    <div>
-                        <h4 class="mb-1 font-bold">{{proyecto.nombre}}</h4>
-                        <h6 class="my-3 line-height-3">{{proyecto.descripcion}}</h6>
-                        <a  class="m-2" href={{proyecto.urlRepositorio}} target="_blank" pTooltip="Ir al repositorio" tooltipPosition="top"><i class="pi pi-github text-2xl"></i></a>
-                        <a  class="m-2" pTooltip="Imagenes" tooltipPosition="top" routerLink="/home/proyectos/{{proyecto.id}}/imagenes"><i class="pi pi-images text-2xl"></i></a>
+    <ng-container *ngIf="proyectos.length > 0; else cardSekeleton">
+        <p-carousel styleClass="my-5" [value]="proyectos" [numVisible]="3" [numScroll]="2" [circular]="true" [responsiveOptions]="responsiveOptions">
+            <ng-template let-proyecto pTemplate="item">
+                <div class="p-card p-auto m-auto p-md-2 m-md-2 shadow-1">
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <p *ngIf="proyecto.imagenes.length === 0"> Sin imagenes</p>
+                            <p-avatarGroup styleClass="justify-content-center">
+                                <p-avatar *ngFor="let imagen of proyecto.imagenes" [image]="imagen.url" size="large" shape="circle"></p-avatar>
+                            </p-avatarGroup>
+                        </div>
+                        <div>
+                            <h4 class="mb-1 font-bold">{{proyecto.nombre}}</h4>
+                            <h6 class="my-3 line-height-3">{{proyecto.descripcion}}</h6>
+                            <a  class="m-2" href={{proyecto.urlRepositorio}} target="_blank" pTooltip="Ir al repositorio" tooltipPosition="top"><i class="pi pi-github text-2xl"></i></a>
+                            <a  class="m-2" pTooltip="Imagenes" tooltipPosition="top" routerLink="/home/proyectos/{{proyecto.id}}/imagenes"><i class="pi pi-images text-2xl"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </ng-template>
-    </p-carousel>
+            </ng-template>
+        </p-carousel>
+    </ng-container>
 </div>
+
+<ng-template #cardSekeleton>
+    <app-card-sekeleton></app-card-sekeleton>
+</ng-template>

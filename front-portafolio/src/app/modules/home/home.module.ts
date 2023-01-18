@@ -22,6 +22,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ImagenesProyectoComponent } from './pages/proyectos/imagenes/imagenes-proyecto.component';
 import {GalleriaModule} from 'primeng/galleria';
 import {ImageModule} from 'primeng/image';
+import {SkeletonModule} from 'primeng/skeleton';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import {ImageModule} from 'primeng/image';
       "showSubtitle" : true,
       "subtitle": 'Percent',
       "subtitleFontSize": '20'
-    })
+    }),
+    SkeletonModule
   ]
 })
 export class HomeModule { }

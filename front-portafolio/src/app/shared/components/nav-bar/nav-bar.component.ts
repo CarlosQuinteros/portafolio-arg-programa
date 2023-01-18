@@ -65,23 +65,6 @@ export class NavBarComponent implements OnInit {
         routerLink: '/home'
       },
       {
-        label:'Acerca de',
-        command: ()=> this.irASobreMi()
-      },
-      // {
-      //   label:'Habilidades',
-      //   command: ()=> this.irAHabilidades()
-      // },
-      // {
-      //   label:'Proyectos',
-      //   routerLink: '/home',
-      //   command: ()=> this.irAProyectos()
-      // },
-      // {
-      //   label:'Experiencia',
-      //   command: ()=> this.irAExperiencias()
-      // },
-      {
         label:'Contacto',
         routerLink: '/contacto'
       },

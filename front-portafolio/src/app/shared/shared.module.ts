@@ -11,13 +11,16 @@ import {TabViewModule} from 'primeng/tabview';
 import { RippleModule } from 'primeng/ripple';
 import { DividerModule } from 'primeng/divider';
 import { TooltipModule } from 'primeng/tooltip';
+import { CardSekeletonComponent } from './components/skeleton-card/card-sekeleton/card-sekeleton.component';
+import { SkeletonModule } from 'primeng/skeleton';
 
 
 @NgModule({
   declarations: [
     PageNotFoundComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    CardSekeletonComponent
   ],
   imports: [
     CommonModule,
@@ -28,12 +31,14 @@ import { TooltipModule } from 'primeng/tooltip';
     TabViewModule,
     RippleModule,
     DividerModule,
-    TooltipModule      
+    TooltipModule,
+    SkeletonModule      
   ],
   exports: [
     PageNotFoundComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    CardSekeletonComponent
   ]
 })
 export class SharedModule { }
