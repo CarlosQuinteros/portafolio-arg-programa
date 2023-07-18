@@ -25,9 +25,6 @@ export class PrincipalAdminPageComponent implements OnInit {
     this.personaService.detallePersonaPorDni(this.dni).subscribe(
       data => {
         this.persona = data;
-      },
-      err => {
-        Swal.fire('Error', err.error.message, 'error');
       }
     )
   }

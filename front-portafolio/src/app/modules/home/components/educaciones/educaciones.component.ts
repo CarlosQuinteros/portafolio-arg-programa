@@ -45,9 +45,6 @@ export class EducacionesComponent implements OnInit {
     this.personaService.educacionesDePersona(this.persona.id).subscribe(
       data => {
         this.educaciones = data;
-      },
-      err => {
-        Swal.fire('Error', err.error.message, 'error');
       }
     )
   }

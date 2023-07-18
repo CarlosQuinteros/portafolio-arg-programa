@@ -1,5 +1,5 @@
 import { AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Persona } from 'src/app/core/models/persona';
 import { FragmentService } from 'src/app/services/fragment.service';
@@ -21,7 +21,8 @@ export class HomePageComponent implements OnInit, OnDestroy{
   constructor(
     private activatedRoute : ActivatedRoute,
     private fragmentService : FragmentService,
-    private personaService : PersonaService
+    private personaService : PersonaService,
+    private router : Router
   ) { }  
 
   ngOnInit(): void {
@@ -36,7 +37,8 @@ export class HomePageComponent implements OnInit, OnDestroy{
         this.persona = data;
       },
       err => {
-        Swal.fire('Error', err.error.message, 'error');
+        Swal.fire('Oops! Parece que algo anda mal', 'No se logró obtener la información', 'error');
+        this.router.navigate(['pagina-no-encontrada']);
       }
     )
   }

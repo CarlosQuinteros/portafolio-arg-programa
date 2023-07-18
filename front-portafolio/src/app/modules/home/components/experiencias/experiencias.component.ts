@@ -45,9 +45,6 @@ export class ExperienciasComponent implements OnInit {
     this.personaService.experienciasLaboralesDePersona(this.persona.id).subscribe(
       data => {
         this.experiencias = data;
-      },
-      err => {
-        Swal.fire('Error', err.error.message, 'error');
       }
     )
   }

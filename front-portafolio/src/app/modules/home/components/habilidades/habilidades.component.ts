@@ -26,9 +26,6 @@ export class HabilidadesComponent implements OnInit {
     this.personaService.habilidadesDePersona(this.persona.id).subscribe(
       data => {
         this.habilidades = data;
-      },
-      err => {
-        Swal.fire('Error', err.error.message, 'error');
       }
     )
   }
