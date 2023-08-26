@@ -8,6 +8,7 @@ import { FragmentService } from 'src/app/services/fragment.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  anioActual: number = new Date().getFullYear();
 
   constructor(
     private fragmentService: FragmentService,

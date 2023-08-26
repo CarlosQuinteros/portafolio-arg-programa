@@ -2,7 +2,7 @@
     <p class="text-3xl mt-4 fw-bold text-center text-bluegray-600">Habilidades</p>
     <ng-container *ngIf="habilidades.length > 0; else cardSekeleton">
         <div class="row d-flex justify-content-center mt-4">
-            <div class="col-6 col-md-4 col-lg-2 text-center" *ngFor="let habilidad of habilidades">
+            <div class="col-3 col-md-2 col-lg-1 text-center mx-l-3" *ngFor="let habilidad of habilidades">
                 <circle-progress
                     [imageSrc]="habilidad.urlImagen"
                     [percent]="habilidad.porcentaje"

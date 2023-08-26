@@ -51,7 +51,7 @@ import {SkeletonModule} from 'primeng/skeleton';
     GalleriaModule,
     ImageModule,
     NgCircleProgressModule.forRoot({
-      "radius": 60,
+      "radius": 50,
       "space": -10,
       "maxPercent": 100,
       "outerStrokeGradient": true,
@@ -72,7 +72,8 @@ import {SkeletonModule} from 'primeng/skeleton';
       "showTitle": true,
       "showSubtitle" : true,
       "subtitle": 'Percent',
-      "subtitleFontSize": '20'
+      "subtitleFontSize": '20',
+      "responsive": true
     }),
     SkeletonModule
   ]
